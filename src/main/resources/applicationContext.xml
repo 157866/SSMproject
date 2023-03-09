@@ -1,9 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--bean中可以省略id和name，但不可以省略class-->
+    <!--    <bean id="userDao" class="com.nsu.dao.impl.UserDaoImpl"></bean>-->
+    <!--    <bean id="userService" class="com.nsu.service.impl.UserServiceImpl">-->
+    <!--        &lt;!&ndash;调用Bean实例中setter方法完成属性赋值，并依赖注入&ndash;&gt;-->
+    <!--        &lt;!&ndash;ref某个Bean实例的引用&ndash;&gt;-->
+    <!--        <property name="userDao" ref="userDao">-->
 
-    <bean id="userDao" class="com.wmt.dao.impl.UserDaoImpl">
+    <!--        </property>-->
+    <!--    </bean>-->
+    <!--1.基于构造函数方式实例化Bean-->
+    <!--    <bean id="bean1" class="com.nsu.instance.Bean1"></bean>-->
+    <!--2.静态工厂方式实例化Bean-->
+    <!--    <bean id="bean2" class="com.nsu.instance.Bean2_Factory" factory-method="createBean"></bean>-->
+    <!--3.实例化工厂方式实例化Bean-->
+    <bean id="bean3_factory" class="com.wmt.instance.Bean3_Factory"></bean>
+    <bean id="bean3" factory-bean="bean3_factory" factory-method="createBean" scope="singleton"></bean>
 
-    </bean>
+
 </beans>
+        <!---->
